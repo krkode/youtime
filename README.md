@@ -1,2 +1,2 @@
 # youtime
-chrome extension for tracking youtube screentime
+chrome extension for filtering youtube search results by year of upload
