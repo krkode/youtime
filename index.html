@@ -3,8 +3,11 @@
     <meta charset="utf-8">
 
     <title>YouTime</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
-    <script src="main.js"></script> 
+
+    <script src="main.js"></script>   
+    <script src="years.js"></script> 
     <script src="search.js"></script>
   </head>
 
@@ -25,14 +28,17 @@
       </article>
       
         <div name="searchForm" id="searchForm">
+            <label for="textKey">Key</label>
+            <input type="text" id="textKey" name="textKey">
+            <br>
             <label for="textSearch">Keyword</label>
             <input type="text" id="textSearch" name="textSearch">
             <br>
+            <label for="selectYear">Year of Upload</label>
             <select id="selectYear" onclick="populateYears()">
-                <option>Year of upload</option>
             </select>
             <br>
-            <input type="submit" value="Search" onclick="search(textSearch.val, selectYear.val)">
+            <input id="inputSearch" type="submit" value="Search">
         </div>
         
         <div id="results">

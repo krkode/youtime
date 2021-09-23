@@ -1,17 +1,34 @@
-function generateYears() {
-    let first_year=2005
-    let current_year = new Date().getFullYear()
-    return Array(current_year - first_year+1).fill().map((element, index) => index + first_year)
-  }
+let connected = false;
+$(document).ready(function(){
+    $("#inputSearch").prop('disabled', true);
 
-function populateYears(){
-    let options = generateYears()
-    let year = document.getElementById("selectYear")
-    for(var i = 0; i < options.length; i++) {
-        var opt = options[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        year.appendChild(el);
-    }
-  }
+    $("#textKey").change(function(){
+        connected = establishApiConnection();
+    });
+
+    //check if everything in div searchForm has a value thats not empty, if yes enable #inputSearch
+        $("div#searchForm :input").each(function(){
+        // $(this).change();
+        $(this).change(function(){
+            updateDisableSubmit();
+          }); 
+       });
+ });
+
+function establishApiConnection(){
+    let key = $("#textKey").text();
+    //return status of connection
+    return true;
+}
+
+function updateDisableSubmit(){
+    let enable = true;
+    $("div#searchForm :input").each(function(){
+        enable = enable && !isEmpty($(this)); // dont need to iterate everything, if one is empty jump out
+       });
+    $("#inputSearch").prop('disabled', !enable);
+}
+
+function isEmpty(element){
+    return element.val() == '';
+}
