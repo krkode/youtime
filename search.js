@@ -1,4 +1,5 @@
 function search(){
+    $("#results_table").empty();
     let url = generateUrl();
 
     fetch(url)

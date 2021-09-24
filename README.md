@@ -13,4 +13,9 @@ i wish it didn't have to be like this BUT im reading everywhere that publishing 
 # todo
 add duration to preview
 css if you care
+new tab in chrome
+wipe table after search
+more than 25 results
+add views to preview
+cookie so api key can be saved
 
