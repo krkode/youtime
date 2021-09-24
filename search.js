@@ -1,10 +1,9 @@
 function search(){
     let url = generateUrl();
 
-    fetch(url).then(response => {
-      console.log(response);
-      displayResults(response);
-    });
+    fetch(url)
+    .then(response => response.json())
+    .then(data =>displayData(data));
 
 }
 
@@ -33,11 +32,6 @@ function generateUrl(){
 
 function getURLSafeVal(element){
   return encodeURIComponent(element.val());
-}
-
-function displayResults(data){
-  console.log("got in display");
-  console.log(data);
 }
 
 function generateDate(year, month, day){
