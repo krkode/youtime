@@ -41,6 +41,8 @@ function displayResults(data){
 }
 
 function generateDate(year, month, day){
+  let date = new Date(year,month,day).toISOString();
   //remove time
-  return new Date(year,month,day).toISOString().substr(0,10);
+  date = date.substr(0,10);
+  return date;
 }
