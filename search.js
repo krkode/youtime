@@ -13,9 +13,8 @@ function generateUrl(){
   let searchText =  getURLSafeVal($("#textSearch"));
 
   let year = $("#selectYear").val();
-  //repeat code right there
-  let startdate = encodeURIComponent(new Date(year,0,1).toISOString());
-  let enddate = encodeURIComponent(new Date(year,11,31).toISOString());
+  let startdate = generateDate(year,0,1);
+  let enddate = generateDate(year,11,31);
 
   let url = new URL('https://www.googleapis.com/youtube/v3/search?')
 
@@ -39,4 +38,9 @@ function getURLSafeVal(element){
 function displayResults(data){
   console.log("got in display");
   console.log(data);
+}
+
+function generateDate(year, month, day){
+  //remove time
+  return new Date(year,month,day).toISOString().substr(0,10);
 }
