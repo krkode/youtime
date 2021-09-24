@@ -1,25 +1,17 @@
-let connected = false;
 $(document).ready(function(){
     $("#inputSearch").prop('disabled', true);
 
-    $("#textKey").change(function(){
-        connected = establishApiConnection();
-    });
-
-    //check if everything in div searchForm has a value thats not empty, if yes enable #inputSearch
+    //enable #inputSearch once all fields are populated
         $("div#searchForm :input").each(function(){
-        // $(this).change();
         $(this).change(function(){
             updateDisableSubmit();
           }); 
        });
+    
+       $("#inputSearch").click(function(){
+           search();
+       });
  });
-
-function establishApiConnection(){
-    let key = $("#textKey").text();
-    //return status of connection
-    return true;
-}
 
 function updateDisableSubmit(){
     let enable = true;
