@@ -1,5 +1,4 @@
 function search(){
-    window.alert("entered search realm");
     $("#results_table").empty();
     let url = generateUrl();
 
