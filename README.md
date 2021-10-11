@@ -16,5 +16,4 @@ css if you care
 new tab in chrome
 more than 25 results
 add views to preview
-Results total to indicate if nothing was found via search
-
+query in views if possible cause search api is sometimes returning stuff that doesn't seem entirely related to keyword search
