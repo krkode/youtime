@@ -32,8 +32,8 @@
         <form name="searchForm" id="searchForm">
             <!--username not required for user but its needed for PasswordCredential functionality, i know its shitty code i'll think through it later-->
             <input hidden name="username" type="text" autocomplete="username" value=" " >
-            <label for="textKey">API Key</label>
-            <input name="password" type="password" autocomplete="new-password">
+            <label for="password">API Key</label>
+            <input id="password" name="password" type="password" autocomplete="new-password">
             <br>
 
             <label for="textSearch">Keyword</label>
@@ -43,7 +43,7 @@
             <select id="selectYear" onclick="populateYears()">
             </select>
             <br>
-            
+
             <input id="inputSearch" type="submit" value="Search">
           </form>
         
