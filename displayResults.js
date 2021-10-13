@@ -3,7 +3,11 @@ function displayData(data){
     let table = $("#results_table")
     let base_url = 'https://www.youtube.com/watch?v=';
     let body = '';
-    for (let i = 0; i < data.items.length; i++){
+
+    let length = data.items?.length;
+    display_length(length);
+
+    for (let i = 0; i < length; i++){
         let result = data.items[i];
         body += '<tr>';
 
@@ -22,6 +26,12 @@ function displayData(data){
         body += '</tr>';
     }
     table.append(body);
+}
+
+function display_length(length){
+    let total_length = length !=null ? length : 0;
+    $("#total_results").text(total_length + " results found");
+    
 }
 
 function generateTableEntry(details){

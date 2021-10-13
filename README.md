@@ -14,8 +14,6 @@ i wish it didn't have to be like this BUT im reading everywhere that publishing 
 add duration to preview
 css if you care
 new tab in chrome
-wipe table after search
 more than 25 results
 add views to preview
-cookie so api key can be saved
-
+query in views if possible cause search api is sometimes returning stuff that doesn't seem entirely related to keyword search

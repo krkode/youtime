@@ -9,7 +9,7 @@ function search(){
 }
 
 function generateUrl(){
-  let apiKey = getURLSafeVal($("#textKey"));
+  let apiKey = getURLSafeVal($("#password"));
   let searchText =  getURLSafeVal($("#textSearch"));
 
   let year = $("#selectYear").val();

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -29,10 +30,13 @@
         <p>filter YouTube search results by year of upload</p>
       </article>
       
-        <div name="searchForm" id="searchForm">
-            <label for="textKey">Key</label>
-            <input type="text" id="textKey" name="textKey">
+        <form name="searchForm" id="searchForm" onsubmit="return false;">
+            <!--username not required for user but its needed for PasswordCredential functionality, i know its shitty code i'll think through it later-->
+            <input hidden name="username" type="text" autocomplete="username" value=" " >
+            <label for="password">API Key</label>
+            <input id="password" name="password" type="password" autocomplete="current-password">
             <br>
+
             <label for="textSearch">Keyword</label>
             <input type="text" id="textSearch" name="textSearch">
             <br>
@@ -40,10 +44,13 @@
             <select id="selectYear" onclick="populateYears()">
             </select>
             <br>
+
             <input id="inputSearch" type="submit" value="Search">
-        </div>
+          </form>
         
         <div id="results">
+            <label id="total_results"></label>
+            <br>
             <table id="results_table">
                 <! --- result: title, id, description, thumbnail, dateuploaded --->
             </table>
