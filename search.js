@@ -2,7 +2,22 @@ function search(){
     $("#results_table").empty();
     let url = generateUrl();
 
-    fetch(url)
+    let headers = {
+      'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+      'Accept-Encoding' : 'gzip, deflate, br',
+      'Alt-Used' :	'youtube.googleapis.com'
+
+    }
+    let fetchHeaders = new Headers(headers);
+
+    const init = {
+      method: 'GET',
+      headers: fetchHeaders,
+      mode: 'cors',
+      cache: 'default'
+    };
+
+    fetch(url, init)
     .then(response => response.json())
     .then(data =>displayData(data));
 
@@ -16,16 +31,16 @@ function generateUrl(){
   let startdate = generateDate(year,0,1);
   let enddate = generateDate(year,11,31);
 
-  let url = new URL('https://www.googleapis.com/youtube/v3/search?')
+  let url = new URL('https://youtube.googleapis.com/youtube/v3/search?')
 
   let params = {
-                key: apiKey,
-                q: searchText,
+                part: 'snippet',
+                maxResults: 25,
                 publishedAfter: startdate,
                 publishedBefore: enddate,
+                q: searchText,
                 type: 'video',
-                maxResults: 25,
-                part: 'snippet'
+                key: apiKey
             }
   url.search = new URLSearchParams(params).toString();
   return url;
