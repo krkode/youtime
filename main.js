@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $("#inputSearch").prop('disabled', true);
 
+    populateYears();
+
     //enable #inputSearch once all fields are populated
         $("form#searchForm :input").each(function(){
         $(this).change(function(){
