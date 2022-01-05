@@ -5,13 +5,10 @@ function search(){
     fetch(url)
     .then(response => response.json())
     .then(data =>displayData(data));
-
+    
 }
 
 function generateUrl(){
-  let apiKey = getURLSafeVal($("#password"));
-  let searchText =  getURLSafeVal($("#textSearch"));
-
   let year = $("#selectYear").val();
   let startdate = generateDate(year,0,1);
   let enddate = generateDate(year,11,31);
@@ -19,24 +16,19 @@ function generateUrl(){
   let url = new URL('https://www.googleapis.com/youtube/v3/search?')
 
   let params = {
-                key: apiKey,
-                q: searchText,
+                part: 'snippet',
+                maxResults: 25,
                 publishedAfter: startdate,
                 publishedBefore: enddate,
+                q: $("#textSearch").val(),
                 type: 'video',
-                maxResults: 25,
-                part: 'snippet'
+                key: $("#password").val()
             }
   url.search = new URLSearchParams(params).toString();
   return url;
 }
 
-function getURLSafeVal(element){
-  return encodeURIComponent(element.val());
-}
-
 function generateDate(year, month, day){
   let date = new Date(year,month,day).toISOString();
-  //date = encodeURIComponent(date);
   return date;
 }
